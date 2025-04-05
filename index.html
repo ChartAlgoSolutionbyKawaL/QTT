@@ -3,102 +3,525 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum Revolution – RangeBreak Strategy & Dashboard</title>
+<title>Quantum Revolution | Algorithmic Trading Strategy Tools for Trainer, Retail & Pro Traders</title>
+  <meta name="description" content="Professional-grade algorithmic trading solutions with real-time analytics and risk management.">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html {
+  scroll-padding-top: 80px; /* Adjust based on your header height */
+}
+  :root {
+    --quantum-blue: #2962FF;
+    --quantum-red: #FF1744;
+    --quantum-dark: #121212;
+    --quantum-darker: #0A0A0A;
+    --quantum-card-bg: #1E1E1E;
+    --quantum-white: #FFFFFF;
+    --quantum-light-gray: #F5F5F5;
+    --quantum-text-dark: #000000;
+    --quantum-text-light: #E5E7EB;
+    --quantum-green: #00C853;
+  }
+
+  /* Professional stock trading theme */
+  body {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --accent-color: #2962FF;
+    --header-font: 'Montserrat', sans-serif;
+    --body-font: 'Montserrat', sans-serif;
+  }
+
+  /* Dark mode override */
+  @media (prefers-color-scheme: dark) {
+    body {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --card-bg: #1e1e1e;
+      --accent-color: #2962FF;
+    }
+  }
+
+  /* Base styles */
+  body {
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+    color: var(--accent-color);
+    font-weight: 600;
+  }
+
+  p, li {
+    color: var(--text-color);
+    font-weight: 400;
+  }
+
+  /* Components */
+  .quantum-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-link {
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+
+  /* Utility classes */
+  .text-blue {
+    color: var(--quantum-blue) !important;
+  }
+  
+  .text-black {
+    color: var(--quantum-text-dark) !important;
+  }
+
+  .text-white {
+    color: var(--quantum-white) !important;
+  }
+
+  .text-red {
+    color: var(--quantum-red) !important;
+  }
+
+  .bg-dark {
+    background-color: var(--quantum-dark);
+    color: var(--quantum-blue);
+  }
+
+  .bg-light {
+    background-color: var(--quantum-white);
+    color: var(--quantum-text-dark);
+  }
+
+/* Case Studies Section */
+.case-study-header {
+  background: linear-gradient(135deg, #0a1128 0%, #001f54 100%); /* dark navy gradient */
+  color: white;
+  padding: 1.25rem 1rem; /* reduced height */
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.case-study-header h2 {
+  color: white;
+  font-size: 1.75rem; /* slightly smaller */
+  font-weight: 700;
+  margin-bottom: 0.25rem; /* tighter spacing */
+}
+
+.case-study-header p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+}
+</style>
+
+<!-- Include Inter font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-900 leading-relaxed tracking-wide">
 
-  <!-- Hero Section -->
-  <header class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-800 text-white py-12 px-6 md:px-20 text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">Quantum Revolution</h1>
-    <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">Learn. Trade. Master. <br><span class="font-semibold">Powered by Chart Algo Solution by KawaL</span></p>
-  </header>
+<body class="gradient-bg">
 
-  <!-- Audience Section -->
-  <section class="py-8 px-6 md:px-20 text-center bg-white">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-gray-900">🧑‍🏫 For Trainers & Traders Ready to Revolutionize</h2>
-    <p class="text-lg text-gray-700 max-w-2xl mx-auto">Meet SimranKaur — a passionate Indian trader who turned chaos into clarity through one groundbreaking discovery.</p>
-  </section>
-
-  <!-- Trader Journey Section -->
-  <section class="bg-gray-100 py-8 px-6 md:px-20">
-    <h2 class="text-3xl font-bold mb-4 text-gray-900">📖 SimranKaur’s Journey: From Confused to Confident</h2>
-    <p class="mb-4 text-lg">Like many traders, SimranKaur started with ambition and screenfuls of charts — but no direction.</p>
-    <ul class="list-disc list-inside mb-4 text-gray-700 text-base">
-      <li>❌ No structured learning</li>
-      <li>❌ No trade review process</li>
-      <li>❌ No way to reflect and grow</li>
-    </ul>
-    <p class="text-lg">Until she discovered the <strong class="text-indigo-700">Quantum RangeBreak Strategy & Dashboard</strong> — a complete TradingView-based toolkit developed by <em>Chart Algo Solution by KawaL</em>.</p>
-  </section>
-
-  <!-- Unique Value Section -->
-  <section class="bg-white py-8 px-6 md:px-20 text-center">
-    <h2 class="text-3xl font-bold mb-6 text-gray-900">✨ What Makes This Tool Stand Out?</h2>
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left text-lg">
-      <ul class="list-disc list-inside text-gray-700">
-        <li>✅ Track live & historical trades inside TradingView</li>
-        <li>✅ Visual dashboard for training classrooms</li>
-        <li>✅ Replay + archive real trades with data</li>
-      </ul>
-      <ul class="list-disc list-inside text-gray-700">
-        <li>✅ Built-in risk management controls</li>
-        <li>✅ No external apps or spreadsheets needed</li>
-      </ul>
+  <!-- ✅ Professional Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <span class="text-2xl font-bold text-gray-900">
+            <span class="text-[var(--quantum-blue)]">Quantum</span> Revolution
+          </span>
+          <span class="ml-2 text-xs font-medium text-gray-500">by Chart Algo Solution</span>
+        </div>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#features" class="nav-link text-sm font-medium text-gray-700">Features</a>
+          <a href="#solutions" class="nav-link text-sm font-medium text-gray-700">Solutions</a>
+          <a href="#how-to-use" class="nav-link text-sm font-medium text-gray-700">Case Studies</a>
+          <a href="#pricing" class="nav-link text-sm font-medium text-gray-700">Pricing</a>
+          <a href="#contact" class="btn-primary px-4 py-2 rounded-lg text-white text-sm font-medium">Request Demo</a>
+        </div>
+        <div class="md:hidden">
+          <button @click="open = !open" class="text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path :class="{ 'hidden': open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path :class="{ 'hidden': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div x-show="open" class="md:hidden pb-4 space-y-2">
+        <a href="#features" class="block px-2 py-2 text-gray-700 font-medium">Features</a>
+        <a href="#solutions" class="block px-2 py-2 text-gray-700 font-medium">Solutions</a>
+        <a href="#how-to-use" class="block px-2 py-2 text-gray-700 font-medium">Case Studies</a>
+        <a href="#pricing" class="block px-2 py-2 text-gray-700 font-medium">Pricing</a>
+        <a href="#contact" class="block btn-primary px-4 py-2 rounded-lg text-white text-sm font-medium mt-2 w-full text-center">Request Demo</a>
+      </div>
     </div>
-    <p class="italic text-lg mt-6 text-gray-600">“It wasn’t just a script. It was a full-fledged trading ecosystem.”</p>
-  </section>
+  </nav>
 
-  <!-- 4 Phase Journey -->
-  <section class="bg-gray-900 text-white py-12 px-6 md:px-20">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-8">🚀 The 4-Phase Journey to Trading Mastery</h2>
-    <p class="text-center text-lg mb-6 text-gray-200">🧭 Designed to guide both Trainers and Learners</p>
-
-    <!-- Phase Cards -->
-    <div class="space-y-10">
-      <div>
-        <h3 class="text-2xl font-bold mb-2">📘 Phase 1: Research & Backtest (Month 0–3)</h3>
-        <p class="italic text-gray-300 mb-2">“Before you trade, study your battlefield.”</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>🔍 Explore timeframes and market cycles</li>
-          <li><strong>Trainer Tip:</strong> Let learners find their edge — with real trades</li>
-        </ul>
+  <!-- 🌟 Hero Section -->
+  <section class="py-16 px-6 md:px-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="animate-fadeIn" style="animation-delay: 0.2s">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          Algorithmic Trading <span class="text-[var(--quantum-blue)]">Reinvented</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8 max-w-lg">
+          Professional-grade trading algorithms with institutional-level analytics, built for Trainers, Retail Traders and Fund Managers.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="btn-primary px-6 py-3 rounded-lg text-white font-medium text-center">Get Started</a>
+          <a href="#features" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium text-center hover:bg-gray-50 transition">Explore Features</a>
+        </div>
       </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-2">📊 Phase 2: Paper Trade with Confidence (Month 3–6)</h3>
-        <p class="italic text-gray-300 mb-2">“Act like it’s real. Risk like it’s paper.”</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>✔ Execute via dashboard with live simulation</li>
-          <li>✔ Analyze every trade automatically</li>
-          <li><strong>Trainer Tip:</strong> Focus on habit-building and routine</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-2">💼 Phase 3: Go Live (Month 6–9)</h3>
-        <p class="italic text-gray-300 mb-2">“Welcome to the arena, SimranKaur.”</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>🎯 Trade small, monitor live, use dashboard insights</li>
-          <li><strong>Trainer Tip:</strong> Conduct regular reviews</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-2">🔧 Phase 4: Evaluate & Optimize (Month 9–12)</h3>
-        <p class="italic text-gray-300 mb-2">“Your trades are your best teacher.”</p>
-        <ul class="list-disc list-inside text-gray-300">
-          <li>🔁 Analyze, adjust and elevate your system</li>
-          <li><strong>Trainer Tip:</strong> Teach iteration — not overtrading</li>
-        </ul>
+      <div class="animate-fadeIn" style="animation-delay: 0.4s">
+        <div class="quantum-card bg-white p-2">
+          <img src="daily-monthly-performance.jpg" alt="Quantum Revolution Dashboard" class="rounded-lg w-full">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Dashboard Showcase -->
-  <section class="py-12 px-6 md:px-20 text-center">
-    <h2 class="text-3xl font-bold mb-6 text-gray-900">📊 Inside the Quantum Dashboard</h2>
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-6">Here's a real look at how SimranKaur uses the RangeBreak Strategy to analyze trades, track performance, and refine execution — all within the TradingView chart.</p>
-    <img src="daily-monthly-performance.jpg" alt="Quantum RangeBreak Strategy Dashboard" class="mx-auto border rounded-xl shadow-xl max-w-full" />
-    <!-- Tip: Replace with actual hosted image path -->
+<!-- ✨ Key Features Section -->
+<section id="features" class="py-16 px-6 md:px-20 bg-white text-gray-800">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">✨ What Makes This Tool Stand Out?</h2>
+    <p class="text-gray-600 mb-10 max-w-2xl mx-auto">Designed for Traders & Trainers — experience the next-gen edge inside TradingView without any external tools.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-left">
+      <!-- Feature 1 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">✅ Track Live & Historical Trades</h3>
+        <p class="text-sm text-gray-700">Get crystal-clear trade logs and charts inside TradingView — no more guesswork.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">✅ Visual Dashboard for Training</h3>
+        <p class="text-sm text-gray-700">Engage your learners or team with a visual dashboard that tells the real trading story.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">✅ Replay + Archive Real Trades</h3>
+        <p class="text-sm text-gray-700">Archive every trade with entry, exit, SL/TP — and replay anytime to reflect and refine.</p>
+      </div>
+      <!-- Feature 4 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">✅ Built-in Risk Management</h3>
+        <p class="text-sm text-gray-700">Control position sizing, SL, and exposure — built right into the system.</p>
+      </div>
+      <!-- Feature 5 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">✅ Zero External Apps or Spreadsheets</h3>
+        <p class="text-sm text-gray-700">Everything you need is right inside TradingView — no third-party clutter.</p>
+      </div>
+      <!-- Feature 6 -->
+      <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-lg mb-2 text-blue-700">✅ Real-Time Performance Insights</h3>
+        <p class="text-sm text-gray-700">Analyze trades with instant stats, equity curves, and win rates — perfect for decision-making and training review.</p>
+      </div>
+    </div>
+
+    <p class="italic text-sm text-gray-600 mt-10 max-w-xl mx-auto">“It wasn’t just a script. It was a full-fledged trading ecosystem.”</p>
+  </div>
+</section>
+
+
+  <!-- 📊 Solutions Section -->
+  <section id="solutions" class="py-16 px-6 md:px-20 gradient-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Tailored Solutions</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Optimized workflows for different market participants</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Solution 1 -->
+        <div class="quantum-card bg-white p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">For Retail Traders</h3>
+          <p class="text-gray-600 mb-4">
+            Turn screen time into alpha with our guided algorithmic framework.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Pre-configured strategy templates</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Visual trade journal with AI insights</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Mobile alert integration</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Solution 2 -->
+        <div class="quantum-card bg-white p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">For Trading Educators</h3>
+          <p class="text-gray-600 mb-4">
+            Institutional-grade teaching tools for your mentorship programs.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>White-labeled dashboard for students</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Automated performance reporting</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Custom strategy certification</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Solution 3 -->
+        <div class="quantum-card bg-white p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">For Fund Managers</h3>
+          <p class="text-gray-600 mb-4">
+            Enterprise solutions for systematic trading operations.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Multi-account trade replication</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>API access for proprietary integrations</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-4 h-4 mt-0.5 mr-2 text-[var(--quantum-green)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Dedicated server deployment</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
+
+ <section class="py-8 px-4 md:px-10 overflow-x-auto bg-gray-100" id="how-to-use">
+  <div class="case-study-header py-4 px-4 bg-navy-800 rounded-lg text-white text-center mb-8">
+    <h2 class="text-base md:text-lg font-semibold">How Vishal Evolved from Just Following</h2>
+    <h2 class="text-base md:text-lg font-semibold">to Thinking Like an Analytical Trader</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[450px]">
+
+    <div class="bg-white shadow-lg rounded-xl p-5 text-center animate-fadeInUp delay-1 hover:scale-105 transition">
+      <h2 class="text-lg font-bold mb-2">🧑‍🏫 For Trainers & Traders</h2>
+      <p class="text-sm text-gray-700">Meet Aaryan — a passionate Indian trader who turned chaos into clarity through one powerful tool.</p>
+    </div>
+
+    <div class="bg-gray-50 shadow-lg rounded-xl p-5 animate-fadeInUp delay-2 hover:scale-105 transition">
+      <h2 class="text-lg font-bold mb-2 text-gray-900">📖 Aaryan's Journey: From Confused to Confident</h2>
+      <p class="text-sm mb-2">Aaryan started with charts but no direction. Until she found her edge.</p>
+      <ul class="list-disc list-inside text-gray-700 text-xs">
+        <li>❌ No structured learning</li>
+        <li>❌ No trade reviews</li>
+        <li>❌ No reflection path</li>
+      </ul>
+      <p class="text-sm mt-2">Then came the <strong class="text-indigo-700">Quantum RangeBreak Strategy</strong>.</p>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-5 text-left animate-fadeInUp delay-3 hover:scale-105 transition">
+      <h2 class="text-lg font-bold mb-2 text-gray-900">✨ Why This Tool Works</h2>
+      <ul class="list-disc list-inside text-gray-700 text-xs">
+        <li>✅ Track trades in TradingView</li>
+        <li>✅ Perfect for trainers</li>
+        <li>✅ Replay & archive trades</li>
+        <li>✅ Built-in risk controls</li>
+        <li>✅ No extra software needed</li>
+      </ul>
+      <p class="italic text-xs text-gray-600 mt-2">"It’s more than a tool — it’s a trading mindset builder."</p>
+    </div>
+
+    <div class="max-w-full">
+      <div class="bg-gray-50 text-gray-800 shadow-lg rounded-xl p-5 animate-fadeInUp delay-4 hover:scale-105 transition">
+        <h2 class="text-lg font-bold mb-2 text-center text-indigo-600">🚀 The 4-Phase Journey</h2>
+        <p class="text-center text-xs text-gray-600 mb-4">🧭 Guiding Traders & Trainers to Trading Clarity</p>
+
+        <div class="space-y-4 text-xs">
+          <div>
+            <h3 class="font-bold text-blue-700">📘 Phase 1: Research & Backtest</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>🔍 Understand timeframes</li>
+              <li><strong class="text-amber-600">Trainer Tip:</strong> Let learners discover edge</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-blue-700">📊 Phase 2: Paper Trade</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>✔ Simulated trades with dashboard</li>
+              <li><strong class="text-amber-600">Trainer Tip:</strong> Build trading habits</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-blue-700">💼 Phase 3: Go Live</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>🎯 Start small and observe progress</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-blue-700">🔧 Phase 4: Optimize</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>🔁 Review, reflect, improve</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- 📈 Dashboard Preview -->
+  <section class="py-16 px-6 md:px-20 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">The Quantum Dashboard</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          Real-time performance analytics and trade management - all within TradingView
+        </p>
+      </div>
+      <div class="quantum-card overflow-hidden">
+        <img src="daily-monthly-performance.jpg" alt="Quantum Dashboard" class="w-full">
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[var(--quantum-blue)] mb-2">18+</div>
+          <div class="text-sm text-gray-600">Performance Metrics</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[var(--quantum-blue)] mb-2">6</div>
+          <div class="text-sm text-gray-600">Risk Models</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[var(--quantum-blue)] mb-2">100%</div>
+          <div class="text-sm text-gray-600">TradingView Native</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[var(--quantum-blue)] mb-2">24/7</div>
+          <div class="text-sm text-gray-600">Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 📞 CTA Section -->
+  <section id="contact" class="py-16 px-6 md:px-20 bg-[#0a1f44] text-blue">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Trading?</h2>
+      <p class="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+        Schedule a 1-on-1 demo with our trading specialists to see how Quantum Revolution can work for you.
+      </p>
+<div class="text-center mt-10">
+  <a href="https://wa.me/918454843396?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20for%20Quantum%20Revolution."
+     target="_blank"
+     class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition">
+    📲 Want a Live Demo? 💬Message us on WhatsApp at <strong> 9004407127</strong>
+  </a>
+</div>
+    </div>
+  </section>
+
+  <!-- 🏢 Footer -->
+  <footer class="py-12 px-6 md:px-20 bg-gray-100 text-black">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div>
+      <div class="text-xl font-bold text-blue-700 mb-4">Quantum Revolution</div>
+      <p class="text-sm mb-4">Chart Algo Solution Product</p>
+      <p class="text-xs">© 2024 Chart Algo Solution Pvt. Ltd. All rights reserved.</p>
+    </div>
+    <div>
+      <h4 class="text-sm font-semibold text-blue-700 mb-4">Product</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Features</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Solutions</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Pricing</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Updates</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-semibold text-blue-700 mb-4">Resources</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Documentation</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">API Reference</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Community</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-sm font-semibold text-blue-700 mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="text-black hover:text-blue-800 transition">About Us</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Careers</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Contact</a></li>
+        <li><a href="#" class="text-black hover:text-blue-800 transition">Legal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-300 text-sm text-center text-gray-600">
+    <p>Chart Algo Solution Pvt. Ltd. is a registered company under Indian Companies Act, 2013</p>
+    <p class="mt-2">Disclaimer: Past performance is not indicative of future results. Trading involves substantial risk.</p>
+  </div>
+</footer>
+
 
 </body>
 </html>
